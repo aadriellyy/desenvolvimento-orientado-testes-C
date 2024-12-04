@@ -32,4 +32,12 @@ TEST_CASE( "Testa empate" ){
 					};
 	REQUIRE( VerificaVelha(teste3) == 2 );
 }
+
+TEST_CASE( "Testa em andamento" ){
+	int teste4[3][3] = {  {0, 1, 2},
+						  {0, 1, 0},			  
+						  {1, 2, 0} 
+					};
+	REQUIRE( VerificaVelha(teste4) == 3 );
+}
  

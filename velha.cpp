@@ -69,6 +69,9 @@ bool empate(int velha[3][3]){
 	return true;
 }
 
+bool emAndamento(int velha[3][3]){
+}
+
 int VerificaVelha( int velha[3][3] )
 {
 	if(empate(velha)){
