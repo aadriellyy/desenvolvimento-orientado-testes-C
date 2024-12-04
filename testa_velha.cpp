@@ -8,8 +8,6 @@
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
   
-
-
 TEST_CASE( "Testa vencedor X") {
 	int teste1[3][3]= {   { 2, 0, 1 }, 
 	                      { 2, 0, 1 },
@@ -24,6 +22,6 @@ TEST_CASE( "Testa vencedor O" ){
 						  {1, 0, 1},
 						  {0, 1, 2} 	
 					};
-	REQUIRE( VerificaVelha(teste2) == 1 );
+	REQUIRE( VerificaVelha(teste2) == 0 );
 }
  

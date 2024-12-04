@@ -16,8 +16,10 @@
 bool venceuLinha(int velha[3][3]){
 	for(int j = 0; j < 3; j++){
 		if(velha[j][0] == 1 && velha[j][1] == 1 && velha[j][2] == 1){
-			return true;
+			return 1;
 		}
+		else if(velha[j][0] == 0 && velha[j][1] == 0 && velha[j][2] == 0)
+			return 0;
 	}
 	return false;
 }
@@ -46,12 +48,19 @@ bool venceuDiagonalSecundaria(int velha[3][3]){
 }
 
 bool vencedorX( int velha[3][3] ){
-	if(venceuLinha(velha) == true || venceuColuna(velha) == true || 
-		venceuDiagonalPrincipal(velha) == true || venceuDiagonalSecundaria(velha) == true){
+	if(venceuLinha(velha) == 1 || venceuColuna(velha) == 1 || 
+		venceuDiagonalPrincipal(velha) == 1 || venceuDiagonalSecundaria(velha) == 1){
 			return true;
 	}
 	return false;
 
+}
+
+bool vencedorO( int velha[3][3] ){
+	if(venceuLinha(velha) == 0){
+		return true;
+	}
+	return false;
 }
 
 int VerificaVelha( int velha[3][3] )
@@ -59,9 +68,10 @@ int VerificaVelha( int velha[3][3] )
 	if(vencedorX(velha) == true){
 		return 1;
 	}
-	else{
+	else if(vencedorO(velha) == true){
 		return 0;
 	}
+	return false;
 }
 
 
