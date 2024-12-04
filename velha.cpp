@@ -14,7 +14,7 @@
  */ 
 
 bool vencedorX( int velha[3][3] ){
-	for(int j; j < 3; j++){
+	for(int j = 0; j < 3; j++){
 		if(velha[j][0] == 1 && velha[j][1] == 1 && velha[j][2] == 1){
 			return true;
 		}
