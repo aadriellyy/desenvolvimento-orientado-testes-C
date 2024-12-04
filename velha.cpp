@@ -70,11 +70,35 @@ bool empate(int velha[3][3]){
 }
 
 bool emAndamento(int velha[3][3]){
+	int count = 0;
+	int countX = 0;
+	int countO = 0; 
+	for(int i = 0; i < 3; i++){
+		for(int j = 0; j < 3; j++){
+			if(velha[i][j] == 0){
+				count ++;
+			}
+			else if(velha[i][j] == 1){
+				countX ++;
+			}
+			else if(velha[i][j] == 2){
+				countO ++;
+			}
+		}
+	}
+
+	if(count > countX && count > countO){
+		return true;
+	}
+	return false;
 }
 
 int VerificaVelha( int velha[3][3] )
 {
-	if(empate(velha)){
+	if(emAndamento(velha)){
+		return 3;
+	}
+	else if(empate(velha)){
 		return 2;
 	}
 	else if(vencedorX(velha)){
