@@ -13,52 +13,41 @@
  *  Descrever o que a funcao faz
  */ 
 
-bool venceuLinha(int velha[3][3]){
+bool venceuLinha(int velha[3][3], int jogador){
 	for(int j = 0; j < 3; j++){
-		if(velha[j][0] == 1 && velha[j][1] == 1 && velha[j][2] == 1){
-			return 1;
+		if(velha[j][0] == jogador && velha[j][1] == jogador && velha[j][2] == jogador){
+			return true;
 		}
-		else if(velha[j][0] == 0 && velha[j][1] == 0 && velha[j][2] == 0)
-			return 0;
 	}
 	return false;
 }
 
-bool venceuColuna(int velha[3][3]){
+bool venceuColuna(int velha[3][3], int jogador){
 	for(int j = 0; j < 3; j++){
-		if(velha[0][j] == 1 && velha[1][j] == 1 && velha[2][j] == 1){
-			return 1;
-		}
-		else if(velha[0][j] == 0 && velha[1][j] == 0 && velha[2][j] == 0){
-			return 0;
+		if(velha[0][j] == jogador && velha[1][j] == jogador && velha[2][j] == jogador){
+			return true;
 		}
 	}
 	return false;
 }
 
-bool venceuDiagonalPrincipal(int velha[3][3]){
-	if(velha[0][0] == 1 && velha[1][1] == 1 && velha[2][2] == 1){
-		return 1;
-	}
-	else if(velha[0][0] == 0 && velha[1][1] == 0 && velha[2][2] == 0){
-		return 0;
+bool venceuDiagonalPrincipal(int velha[3][3], int jogador){
+	if(velha[0][0] == jogador && velha[1][1] == jogador && velha[2][2] == jogador){
+		return true;
 	}
 	return false;
 }
 
-bool venceuDiagonalSecundaria(int velha[3][3]){
-	if(velha[0][2] == 1 && velha[1][1] == 1 && velha[2][0] == 1){
-		return 1;
-	}
-	else if(velha[0][2] == 0 && velha[1][1] == 0 && velha[2][0] == 0){
-		return 0;
+bool venceuDiagonalSecundaria(int velha[3][3], int jogador){
+	if(velha[0][2] == jogador && velha[1][1] == jogador && velha[2][0] == jogador){
+		return true;
 	}
 	return false;
 }
 
 bool vencedorX( int velha[3][3] ){
-	if(venceuLinha(velha) == 1 || venceuColuna(velha) == 1 || 
-		venceuDiagonalPrincipal(velha) == 1 || venceuDiagonalSecundaria(velha) == 1){
+	if(venceuLinha(velha, 1) || venceuColuna(velha, 1) || 
+		venceuDiagonalPrincipal(velha, 1) || venceuDiagonalSecundaria(velha, 1)){
 			return true;
 	}
 	return false;
@@ -66,28 +55,32 @@ bool vencedorX( int velha[3][3] ){
 }
 
 bool vencedorO( int velha[3][3] ){
-	if(venceuLinha(velha) == 0 || venceuColuna(velha) == 0 || 
-		venceuDiagonalPrincipal(velha) == 0 || venceuDiagonalSecundaria(velha) == 0){
+	if(venceuLinha(velha, 2) || venceuColuna(velha, 2) || 
+		venceuDiagonalPrincipal(velha, 2) || venceuDiagonalSecundaria(velha, 2) ){
 		return true;
 	}
 	return false;
 }
 
 bool empate(int velha[3][3]){
-	return false;
+	if(vencedorX(velha) || vencedorO(velha)){
+		return false;
+	}
+	return true;
 }
 
 int VerificaVelha( int velha[3][3] )
 {
-	if(vencedorX(velha) == true){
-		return 1;
-	}
-	else if(vencedorO(velha) == true){
-		return 0;
-	}
-	else if(empate(velha) == true){
+	if(empate(velha)){
 		return 2;
 	}
+	else if(vencedorX(velha)){
+		return 1;
+	}
+	else if(vencedorO(velha)){
+		return 0;
+	}
+	
 	return false;
 }
 

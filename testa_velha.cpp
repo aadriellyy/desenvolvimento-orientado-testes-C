@@ -27,8 +27,8 @@ TEST_CASE( "Testa vencedor O" ){
 
 TEST_CASE( "Testa empate" ){
 	int teste3[3][3] = {  {1, 2, 1},
-						  {2, 1, 2},			  
-						  {1, 2, 1} 
+						  {1, 1, 2},			  
+						  {2, 1, 2} 
 					};
 	REQUIRE( VerificaVelha(teste3) == 2 );
 }
