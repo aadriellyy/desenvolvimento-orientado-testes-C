@@ -24,4 +24,12 @@ TEST_CASE( "Testa vencedor O" ){
 					};
 	REQUIRE( VerificaVelha(teste2) == 0 );
 }
+
+TEST_CASE( "Testa empate" ){
+	int teste3[3][3] = {  {1, 2, 1},
+						  {2, 1, 2},			  
+						  {1, 2, 1} 
+					};
+	REQUIRE( VerificaVelha(teste3) == 2 );
+}
  

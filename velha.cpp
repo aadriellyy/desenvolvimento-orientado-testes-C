@@ -73,6 +73,10 @@ bool vencedorO( int velha[3][3] ){
 	return false;
 }
 
+bool empate(int velha[3][3]){
+	return false;
+}
+
 int VerificaVelha( int velha[3][3] )
 {
 	if(vencedorX(velha) == true){
@@ -80,6 +84,9 @@ int VerificaVelha( int velha[3][3] )
 	}
 	else if(vencedorO(velha) == true){
 		return 0;
+	}
+	else if(empate(velha) == true){
+		return 2;
 	}
 	return false;
 }
