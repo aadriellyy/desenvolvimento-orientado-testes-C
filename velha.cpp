@@ -93,6 +93,10 @@ bool emAndamento(int velha[3][3]){
 	return false;
 }
 
+bool jogoImpossivel(int velha[3][3] ){
+	
+}
+
 int VerificaVelha( int velha[3][3] )
 {
 	if(emAndamento(velha)){
