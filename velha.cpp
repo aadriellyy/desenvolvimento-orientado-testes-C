@@ -94,12 +94,34 @@ bool emAndamento(int velha[3][3]){
 }
 
 bool jogoImpossivel(int velha[3][3] ){
-	
+	int countX = 0;
+	int countO = 0; 
+	for(int i = 0; i < 3; i++){
+		for(int j = 0; j < 3; j++){
+			if(velha[i][j] == 1){
+				countX ++;
+			}
+			else if(velha[i][j] == 2){
+				countO ++;
+			}
+		}
+	}
+	int diferenca = countX - countO;
+	if(diferenca > 1){
+		return true;
+	}
+	else if(vencedorX(velha) && vencedorO(velha)){
+		return true;
+	}
+	return false;
 }
 
 int VerificaVelha( int velha[3][3] )
 {
-	if(emAndamento(velha)){
+	if(jogoImpossivel(velha)){
+		return 4;
+	}
+	else if(emAndamento(velha)){
 		return 3;
 	}
 	else if(empate(velha)){

@@ -3,6 +3,7 @@ bool vencedorX( int velha[3][3] );
 bool vencedorO( int velha[3][3] );
 bool empate( int velha[3][3] );
 bool emAndamento( int velha[3][3] );
+bool jogoImpossivel( int velha[3][3] );
 bool venceuLinha( int velha[3][3] );
 bool venceuColuna( int velha[3][3] );
 bool venceuDiagonalPrincipal(int velha[3][3]);
